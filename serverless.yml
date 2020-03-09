@@ -6,6 +6,14 @@ provider:
   region: eu-north-1
   stage: dev
 
+plugins:
+  - serverless-offline
+
 functions:
+  api:
+    handler: src/api/api.handler
+    events:
+      - http: GET /api
+
   hello:
     handler: handler.hello

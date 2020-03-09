@@ -1,0 +1,23 @@
+{
+  "name": "sls-sandbox",
+  "version": "1.0.0",
+  "description": "API Gateway and Lambda functions to deploy to AWS",
+  "main": "handler.js",
+  "scripts": {
+    "dev": "sls offline start --port 4500",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinhlee95/serverless-lambda.git"
+  },
+  "author": "Vinh Le <lethanhvinh95@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vinhlee95/serverless-lambda/issues"
+  },
+  "homepage": "https://github.com/vinhlee95/serverless-lambda#readme",
+  "devDependencies": {
+    "serverless-offline": "5.12.1"
+  }
+}
