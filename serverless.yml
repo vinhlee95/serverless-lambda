@@ -13,8 +13,23 @@ functions:
   api:
     handler: src/api/api.handler
     events:
-      - http: GET /api
+      - http:
+          path: /api
+          method: GET
   todos:
     handler: src/api/todos.handler
     events:
-      - http: GET /api/todos
+      - http:
+          path: /api/todos
+          method: GET
+  todo:
+    handler: src/api/todo.handler
+    events:
+      - http:
+          path: /api/todos/{id}
+          method: GET
+          request:
+            parameters:
+              paths:
+                id: true
+
