@@ -14,6 +14,3 @@ functions:
     handler: src/api/api.handler
     events:
       - http: GET /api
-
-  hello:
-    handler: handler.hello
