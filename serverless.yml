@@ -14,3 +14,7 @@ functions:
     handler: src/api/api.handler
     events:
       - http: GET /api
+  todos:
+    handler: src/api/todos.handler
+    events:
+      - http: GET /api/todos
