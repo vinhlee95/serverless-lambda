@@ -5,7 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "dev": "sls offline start --port 4500",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sls deploy"
   },
   "repository": {
     "type": "git",
