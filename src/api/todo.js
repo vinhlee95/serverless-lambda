@@ -1,4 +1,4 @@
-module.exports.handler = async (event) => {
+export const handler = async (event) => {
   const todoId = event.pathParameters.id
   const todos = [
 		{id: 1, name: 'clean up', status: 'open'},
