@@ -13,8 +13,11 @@ plugins:
 custom:
   webpack:
     webpackConfig: 'webpack.config.js'
-    includeModules: false
-    packager: 'yarn'
+    includeModules: true
+    packager: yarn
+
+package:
+  individually: true
 
 functions:
   api:
