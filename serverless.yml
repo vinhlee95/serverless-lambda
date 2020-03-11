@@ -8,6 +8,13 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: false
+    packager: 'yarn'
 
 functions:
   api:
