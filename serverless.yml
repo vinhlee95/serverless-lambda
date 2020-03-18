@@ -5,6 +5,20 @@ provider:
   runtime: nodejs12.x
   region: eu-north-1
   stage: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["TodosDynamoDBTable", "Arn"] }
+
+  environment:
+    TODOS_TABLE: ${self:custom.tableName}
 
 plugins:
   - serverless-offline
@@ -15,6 +29,7 @@ custom:
     webpackConfig: 'webpack.config.js'
     includeModules: true
     packager: yarn
+  tableName: 'todos-table-${self:provider.stage}'
 
 package:
   individually: true
@@ -26,3 +41,20 @@ functions:
       - http: ANY /
       - http: 'ANY {proxy+}'
 
+resources:
+  Resources:
+    TodosDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: todoId
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: todoId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.tableName}
