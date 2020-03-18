@@ -1,11 +1,8 @@
-export const handler = async (event) => {
+export const getAll = (req, res) => {
 	const todos = [
 		{id: 1, name: 'clean up', status: 'open'},
 		{id: 1, name: 'cook', status: 'done'}
 	]
 
-	return {
-		statusCode: 200,
-		body: JSON.stringify(todos)
-	}
+	res.status(200).json(todos)
 }
